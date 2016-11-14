@@ -29,3 +29,7 @@ This is going to be a bit different than what we've done in the past. This is a 
 </a>
 
 When you are developing an app for AppDev, you will be given mockups from designers of what the app should look like. This includes all screens and panels, including multiple mockups for side panels and settings. Here are a couple mockups for AppDev's Publications app for SPARC, which is still a work in progress. You can use them as a model for your own login screens. The only caveat is that you should not try to duplicate the logo.
+
+![Splash screen](img/splash-screen.png)
+
+![Sign up screen](img/sign-up.png)
