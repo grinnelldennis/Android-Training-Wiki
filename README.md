@@ -1,9 +1,52 @@
 # AppDev Android Training Wiki
 
 ## Sessions
+* [11/23](#11-23)
 * [11/9](#11-9)
 * [11/2](#11-2)
 * [10/12](#10-12)
+
+<a name="11-23">
+# 11/23/16
+</a>
+
+This week's homework is more of a reading assignment than a programming assignment. We've been building upon all the major topics, and it will culminate in a final, useable product. Here's the big picture: you will create an app that users can sign up and login for, then view a list of "stories" retrieved over the network with JSON, a detailed view of the story, and finally logout. That seems like a lot, but it will all be built up in parts. This week is reading in greater depth about some of the topics we've discussed.
+
+First, layouts. Recall that we use XML layouts to describe how we want our Activity to look. Here is an article that goes into further detail on the different types of layouts and the various attributes you can use: https://guides.codepath.com/android/Constructing-View-Layouts. You should try to use this to make your login and signup pages look prettier if you can -- this isn't homework you must complete for next class, but you will need to do this eventually.
+
+Second, buttons. We talked briefly about onClick and how to use buttons, but there are many more things you can do with them: https://guides.codepath.com/android/Basic-Event-Listeners
+
+You don't need to memorize every detail about the various types of layouts or know exactly how to use all the listeners, but you should know that they all exist in case you need to use them in the future.
+
+Finally, ListViews. A common pattern in mobile apps is having a small scrollable list of content. For example, [here](img/listview.png) is an example of a simple `ListView` with radio buttons, which has a static source of options. As a sidenote, we use a `RecyclerView` for larger datasets to decrease memory consumption, and we'll go into more detail on this in a later session. The visuals and data are broken down into three major components: the `DataSource`, `Adapter`, and Adapter View. The `DataSource` holds the "raw" data in the form of Java objects. For example, take this JSON file:
+
+```json
+{  
+   "status":0,
+   "users":[  
+      {  
+         "id":1,
+         "name":"Mattori"
+      },
+      {  
+         "id":2,
+         "name":"Larry"
+      }
+   ]
+}
+```
+
+If you are unfamiliar with JSON you can read up on it [here (although skip the Javascript part)](http://www.w3schools.com/js/js_json_intro.asp), but it's a very straightforward data format. Objects are contained in `{}`. Objects must use pairs of `names` or `keys`, which are strings, with `values`. A `value` can be a string, number, boolean, object, null, or an array. Arrays are contained in `[]` and use commas to separate values.
+
+The above JSON object has a `status` of 0 and an array of `users`. Each user has an `id` and a `name`. Only two users are defined: `Mattori` with `id` 1 and `Larry` with `id` 2. Typically, we would parse the JSON and see that since the `status` is 0 then there were no issues retrieving the data. Then, we would take the `users` array and pass that as a `DataSource`, possibly as an `ArrayList`.
+
+An `Adapter` is, generally, something that bridges between the data and the `View`. One major application is with lists of data since you can then define a `View` for each item in the list. For example, we might not want to actually show what each user's `id` is but we would probably want to show the `name` in big text.
+
+The Adapter View is the way we want to represent this set of data. The basic variants are a `ListView` and a `GridView`.
+
+Take a look through this article on `ArrayAdapter`s and `ListView`s: https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView. The important sections are `Using a Custom ArrayAdapter`, `Attaching the Adapter to a ListView`, `Populating Data into ListView` (although don't worry too much about parsing JSON yet), and `Attaching Event Handlers Within Adapter`. Everything else is useful but extra.
+
+We will go into further detail on what exactly you are making and what the time frame is next class.
 
 <a name="11-9">
 # 11/9/16
